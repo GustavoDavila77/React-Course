@@ -3,7 +3,10 @@ import './App.css';
 //import { directive } from '@babel/types';
 
 import tasks from './samples/tasks.json';
+
+//Components
 import Tasks from './components/Tasks'; 
+import TaskForm from './components/TaskForm';
 
 //console.log(tasks);
 
@@ -15,6 +18,7 @@ class App extends Component {
 
   render(){
     return <div>
+      <TaskForm/>
       <Tasks tasks={this.state.tasks} />
     </div>
   }
