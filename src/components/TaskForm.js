@@ -9,18 +9,19 @@ export default class TasksForm extends Component {
 
     //capturamos el evento 
     onSubmit = (e) => {
-        console.log(this.state);
-        e.preventDefault();
+        this.props.addTask(this.state.title, this.state.description);
+        e.preventDefault(); //Evita el comportamiento por defecto de un evento
     } 
 
+    //Escuchamos los eventos del input y el textarea a traves del metodo onChange
+    //para capturar los datos
     onChange = e =>{
-        console.log(e.target.name, e.target.value);
+        //console.log(e.target.name, e.target.value);
+        //modificamos el estado
         this.setState({
             [e.target.name]: e.target.value 
         })
     }
-
-    
 
     render() {
         return (

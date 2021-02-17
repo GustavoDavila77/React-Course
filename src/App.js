@@ -16,9 +16,24 @@ class App extends Component {
     tasks: tasks
   }
 
+  addTask = (title, description) => {
+    const newTask = {
+      title: title,
+      description: description,
+      id: this.state.tasks.length
+    }
+    this.setState({
+      //concatenamos a task la nueva tarea
+      tasks: [...this.state.tasks, newTask]
+    })
+    //console.log(title, description)
+  }
+
+  // pasamos a TaskForm la funcion addtask por medio de los
+  // props
   render(){
     return <div>
-      <TaskForm/>
+      <TaskForm addTask={this.addTask} />
       <Tasks tasks={this.state.tasks} />
     </div>
   }
