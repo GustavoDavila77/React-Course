@@ -29,12 +29,34 @@ class App extends Component {
     //console.log(title, description)
   }
 
+  deleteTask = (id) => {
+    //show only tasks that doesn´t contain id sended
+    const newTasks = this.state.tasks.filter(task => task.id !== id)
+    this.setState({tasks: newTasks})
+    console.log(newTasks);
+  }
+
+  checkDone = id => {
+    const newTask = this.state.tasks.map(task => {
+      if(task.id === id){
+        task.done = !task.done
+      }
+      return task;
+    });
+    this.setState({task: newTask})
+  }
+
+
   // pasamos a TaskForm la funcion addtask por medio de los
   // props
   render(){
     return <div>
       <TaskForm addTask={this.addTask} />
-      <Tasks tasks={this.state.tasks} />
+      <Tasks
+        tasks={this.state.tasks}
+        deleteTask={this.deleteTask}
+        checkTask={this.checkDone}
+      />
     </div>
   }
 }
