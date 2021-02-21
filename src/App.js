@@ -7,6 +7,7 @@ import tasks from './samples/tasks.json';
 //Components
 import Tasks from './components/Tasks'; 
 import TaskForm from './components/TaskForm';
+import Post from './components/Post';
 
 //console.log(tasks);
 
@@ -57,6 +58,7 @@ class App extends Component {
         deleteTask={this.deleteTask}
         checkTask={this.checkDone}
       />
+      <Post/>
     </div>
   }
 }
