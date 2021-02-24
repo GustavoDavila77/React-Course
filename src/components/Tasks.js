@@ -7,10 +7,10 @@ class Tasks extends Component {
     render() {
         // property key is a requirement of react for don´nt show a warning
         //task => is a component that is returned
-        return this.props.tasks.map(task =>
+        return this.props.tasks_array.map(taskvalue =>
             <Task
-                task= {task}
-                key={task.id}
+                task_send= {taskvalue}
+                key={taskvalue.id}
                 deleteTask={this.props.deleteTask}
                 checkTask= {this.props.checkTask}
             />);
@@ -19,7 +19,7 @@ class Tasks extends Component {
 
 
 Tasks.propTypes = {
-    tasks: PropTypes.array.isRequired
+    tasks_array: PropTypes.array.isRequired
 }
 
 export default Tasks;

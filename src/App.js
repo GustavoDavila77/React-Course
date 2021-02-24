@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import './App.css';
 //import { directive } from '@babel/types';
 
@@ -52,13 +53,27 @@ class App extends Component {
   // props
   render(){
     return <div>
-      <TaskForm addTask={this.addTask} />
-      <Tasks
-        tasks={this.state.tasks}
-        deleteTask={this.deleteTask}
-        checkTask={this.checkDone}
-      />
-      <Post/>
+
+      <Router>
+
+        <Link to="/">Home</Link>
+        <br/>
+        <Link to="/posts">Posts</Link>
+
+        <Route exact path="/" render={() => {
+          return <div>
+            <TaskForm addTask={this.addTask} />
+            <Tasks
+              tasks_array={this.state.tasks}
+              deleteTask={this.deleteTask}
+              checkTask={this.checkDone}
+            />
+          </div>   
+        }}>
+        </Route>
+        <Route path="/posts" component={Post}/>
+      </Router>
+    
     </div>
   }
 }

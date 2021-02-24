@@ -8,15 +8,15 @@ class Task extends Component {
     StyleCompleted(){
         return {
             fontSize: '20px',
-            color: this.props.task.done ? 'green' : 'black',
-            textDecoration: this.props.task.done ? 'line-through' : 'none'
+            color: this.props.task_send.done ? 'green' : 'black',
+            textDecoration: this.props.task_send.done ? 'line-through' : 'none'
         }
     }
     
     render() {
         //destructuring
         //const {task} = this.props;
-        const {title, description,done,id} = this.props.task;
+        const {title, description,done,id} = this.props.task_send;
         // return <div className="red"> other form
         //const color= {background: 'gray'}; 
         
@@ -34,7 +34,7 @@ class Task extends Component {
 }
 
 Task.propTypes = {
-    task: PropTypes.object.isRequired
+    task_send: PropTypes.object.isRequired
 }
 
 const btnDelete = {
